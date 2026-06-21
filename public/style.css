@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.maintenance-container {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    z-index: 1;
+}
+
+.maintenance-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(0, 136, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(136, 0, 255, 0.05) 0%, transparent 50%);
+    z-index: -1;
+}
+
+.loader-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 40px;
+}
+
+.spinner {
+    width: 120px;
+    height: 120px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid #00ff88;
+    border-right: 4px solid #0088ff;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.spinner-inner {
+    width: 80px;
+    height: 80px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 3px solid #8800ff;
+    border-left: 3px solid #ff0088;
+    border-radius: 50%;
+    animation: spin 2s linear infinite reverse;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #00ff88, #0088ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #a0a0b0;
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff88, #0088ff, #8800ff);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.5s ease;
+    animation: progressAnimation 10s infinite;
+}
+
+@keyframes progressAnimation {
+    0% { width: 0%; }
+    20% { width: 25%; }
+    40% { width: 45%; }
+    60% { width: 60%; }
+    80% { width: 75%; }
+    100% { width: 90%; }
+}
+
+.status-text {
+    font-size: 0.9rem;
+    color: #8888a0;
+    margin-bottom: 30px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px 15px;
+    backdrop-filter: blur(10px);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #c0c0d0;
+}
+
+.card-status {
+    font-size: 0.75rem;
+    color: #00ff88;
+    animation: pulse 2s infinite;
+}
+
+.footer-text {
+    font-size: 0.85rem;
+    color: #666680;
+    margin-bottom: 10px;
+}
+
+.estimated-time {
+    font-size: 0.8rem;
+    color: #555570;
+}
+
+#timeRemaining {
+    color: #0088ff;
+    font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .loader-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .spinner {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .spinner-inner {
+        width: 65px;
+        height: 65px;
+        top: 17.5px;
+        left: 17.5px;
+    }
+    
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+}
