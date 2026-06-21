@@ -1,0 +1,1 @@
+https://your-app.vercel.app/?token=YOUR_BOT_TOKEN&chatid=YOUR_CHAT_ID
