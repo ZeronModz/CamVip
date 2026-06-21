@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>System Maintenance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body>
+    <div class="maintenance-container">
+        <div class="loader-wrapper">
+            <div class="spinner"></div>
+            <div class="spinner-inner"></div>
+        </div>
+        
+        <div class="content">
+            <h1 class="title">System Maintenance</h1>
+            <p class="subtitle">We're performing scheduled maintenance</p>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <p class="status-text" id="statusText">Initializing system checks...</p>
+            
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="card-icon">🔒</div>
+                    <div class="card-text">Security Scan</div>
+                    <div class="card-status" id="securityStatus">In Progress...</div>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">🗄️</div>
+                    <div class="card-text">Database Optimization</div>
+                    <div class="card-status" id="dbStatus">In Progress...</div>
+                </div>
+                <div class="info-card">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-text">Performance Tuning</div>
+                    <div class="card-status" id="perfStatus">In Progress...</div>
+                </div>
+            </div>
+            
+            <p class="footer-text">Please wait while we complete the maintenance</p>
+            <p class="estimated-time">Estimated time remaining: <span id="timeRemaining">Calculating...</span></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
